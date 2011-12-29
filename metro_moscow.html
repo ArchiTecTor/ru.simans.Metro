@@ -186,7 +186,13 @@
                 x:'406',
                 y:'643',
                 color:'#71C725',
-                selected: 1,
+                onSelected: function(){
+                    $(this.button).animate({borderWidth:'3px'},500);
+                },
+                onDeselected: function(){
+                    $(this.button).animate({borderWidth:'1px'},500);
+                },
+                selected: true,
             })
             );
             line.addStation( new ru.simans.MetroStation({

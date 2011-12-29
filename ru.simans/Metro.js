@@ -73,6 +73,7 @@ ru.simans.Metro=function(canvas_id,metro_file){
     stations_select.multiple='multiple';
     stations_select.name='metro';
     stations_select.className='ru_simans_Metro stationsList';
+    
     canvas.appendChild(stations_select);    
     this.stationsSelect=stations_select;
     
@@ -84,27 +85,29 @@ ru.simans.Metro=function(canvas_id,metro_file){
     this.lines=new Array();
     
     
+    
 };
 
 
 ru.simans.Metro.prototype.addLine=function(line){
-    var metro=this;
-    metro.lines.push(line);
-        
-    this.canvas.appendChild(line.container);
-    line.container=this.canvas;
     
-    this.stationsSelect.appendChild(line.selectGroup);
+    this.lines.push(line);
+    this.canvas.appendChild(line.container);
 
-    $(this.stationsSelect).bind('click',function(){
+    var metro=this;
+    $(line.selectGroup).bind('click',function(event){
         metro.selectToggleSelected();
+        event.preventDefault();
     });
     
+    line.container=this.canvas;
+    this.stationsSelect.appendChild(line.selectGroup);
     
 };
 
 ru.simans.Metro.prototype.selectToggleSelected=function(){
 
+    
     for(var line=0; line < this.lines.length; line++){
         var this_line=this.lines[line];
         for(var station=0; station<this_line.stations.length; station++){
@@ -142,7 +145,7 @@ ru.simans.MetroLine.prototype.addStation=function(station){
     this.stations.push(station);
     station.setColor(this.color);
     if(station.selected){
-        station.setSelected(1);
+        station.setSelected(1,true);
     }
     this.container.appendChild(station.getWidget());
     this.selectGroup.appendChild(station.getSelectOption());
@@ -164,9 +167,10 @@ ru.simans.MetroStation=function(obj){
     this.y=obj.y;
     this.color=obj.color;
     
-    this.selected=obj.selected||0;
+    this.selected=obj.selected||false;
     this.name=obj.name;
     this.onSelected=obj.onSelected||function(){};// а вдруг пригодится)
+    this.onDeselected=obj.onDeselected||function(){};    
     this.button=document.createElement('button');
     this.selectItem=document.createElement('option');
 
@@ -188,11 +192,11 @@ ru.simans.MetroStation=function(obj){
 
     if(this.selected){
         //console.log('id - %d selected - %s',this.id, this.selected);
-        this.setSelected(1);
+        this.setSelected(true,true);
     }
     else{
         //console.log('id - %d selected - %s',this.id, this.selected);
-        this.setSelected(0);
+        this.setSelected(false,true);
     }
     
     this.button.style.position='absolute';
@@ -202,26 +206,35 @@ ru.simans.MetroStation=function(obj){
     
 };
 
-ru.simans.MetroStation.prototype.setSelected=function(select){
+ru.simans.MetroStation.prototype.setSelected=function(select,init){
+    if(this.selected==select && !init)
+        return;
     if(select){
         this.button.className='ru_simans_MetroStation selected';    
         this.selectItem.selected=true;
         
         this.button.style.backgroundColor='';
         this.selected=true;
-        this.onSelected();
+        if(!init){
+            this.onSelected();
+        }
+        
     }
     else{
         this.button.className='ru_simans_MetroStation';
         this.selectItem.selected=false;
         this.button.style.backgroundColor=this.color;
-        
+        if(!init){
+            this.onDeselected();
+        }
         this.selected=false;
     }
     
 }
 
-ru.simans.MetroStation.prototype.setButtonSelected=function(select){
+ru.simans.MetroStation.prototype.setButtonSelected=function(select,init){
+    if(this.selected==select && !init)
+        return;
     if(select){
         this.button.className='ru_simans_MetroStation selected';
         this.button.style.backgroundColor='';
@@ -231,6 +244,7 @@ ru.simans.MetroStation.prototype.setButtonSelected=function(select){
     else{
         this.button.className='ru_simans_MetroStation';
         this.button.style.backgroundColor=this.color;
+        this.onDeselected();
         this.selected=false;
     }
 }
