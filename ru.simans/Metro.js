@@ -77,6 +77,12 @@ ru.simans.Metro=function(canvas_id,metro_file){
     canvas.appendChild(stations_select);    
     this.stationsSelect=stations_select;
     
+    var metro=this;
+    $(this.stationsSelect).bind('click',function(event){
+        metro.selectToggleSelected();
+        event.preventDefault();
+    });
+    
     if(!(this.width=canvas.offsetWidth)) throw new Error("bad metro width: "+canvas.offsetWidth+" obj "+canvas);
     if(!(this.height=canvas.offsetHeight)) throw new Error("bad metro height: "+canvas.offsetHeight);
     
@@ -94,11 +100,7 @@ ru.simans.Metro.prototype.addLine=function(line){
     this.lines.push(line);
     this.canvas.appendChild(line.container);
 
-    var metro=this;
-    $(line.selectGroup).bind('click',function(event){
-        metro.selectToggleSelected();
-        event.preventDefault();
-    });
+    
     
     line.container=this.canvas;
     this.stationsSelect.appendChild(line.selectGroup);
