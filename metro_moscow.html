@@ -1,0 +1,751 @@
+<!doctype html><html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script src="ru.simans/Metro.js"></script>
+    <script src="ru.simans/jquery-current.js"></script>
+    <script src="ru.simans/MetroEditor.js"></script>
+    <script>
+        window.onload=function(){
+            var metro=new ru.simans.Metro('metro','metro.gif');
+            
+            var line=new ru.simans.MetroLine({name:'Сокольническая линия', color:'red'});
+            line.addStation( new ru.simans.MetroStation({
+                name:'Улица Подбельского',
+                id:'1',
+                x:'488',
+                y:'59',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Черкизовская',
+                id:'2',
+                x:'488',
+                y:'70',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Преображенская площадь',
+                id:'3',
+                x:'488',
+                y:'78',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Сокольники',
+                id:'4',
+                x:'488',
+                y:'89',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Красносельская',
+                id:'5',
+                x:'488',
+                y:'99',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Комсомольская',
+                id:'6',
+                x:'381',
+                y:'254',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Красные ворота',
+                id:'7',
+                x:'370',
+                y:'272',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Чистые пруды',
+                id:'8',
+                x:'351',
+                y:'290',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Лубянка',
+                id:'9',
+                x:'323',
+                y:'319',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Охотный ряд',
+                id:'10',
+                x:'288',
+                y:'354',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Библиотека им. Ленина',
+                id:'11',
+                x:'234',
+                y:'408',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Кропоткинская',
+                id:'12',
+                x:'208',
+                y:'434',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Парк Культуры',
+                id:'13',
+                x:'198',
+                y:'450',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Фрунзенская',
+                id:'14',
+                x:'86',
+                y:'604',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Спортивная',
+                id:'15',
+                x:'86',
+                y:'614',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Воробьевы горы',
+                id:'16',
+                x:'86',
+                y:'624',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Университет',
+                id:'17',
+                x:'86',
+                y:'633',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Проспект Вернадского',
+                id:'18',
+                x:'86',
+                y:'644',
+                color:'red',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Юго-западная',
+                id:'19',
+                x:'86',
+                y:'658',
+                color:'red',
+            })
+            );
+            metro.addLine(line);
+            
+            line=new ru.simans.MetroLine({name:'Люблинская линия', color:'#71C725'});
+            line.addStation( new ru.simans.MetroStation({
+                name:'Зябликово',
+                id:'20',
+                x:'400',
+                y:'669',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Шипиловская',
+                id:'21',
+                x:'406',
+                y:'654',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Борисово',
+                id:'22',
+                x:'406',
+                y:'643',
+                color:'#71C725',
+                selected: 1,
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Марьино',
+                id:'23',
+                x:'406',
+                y:'633',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Братискавская',
+                id:'24',
+                x:'406',
+                y:'624',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Люблино',
+                id:'25',
+                x:'406',
+                y:'614',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Волжская',
+                id:'26',
+                x:'406',
+                y:'603',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Печатники',
+                id:'27',
+                x:'406',
+                y:'593',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Кожуховская',
+                id:'28',
+                x:'406',
+                y:'584',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Дубровка',
+                id:'29',
+                x:'406',
+                y:'574',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Крестьянская застава',
+                id:'30',
+                x:'455',
+                y:'438',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Римская',
+                id:'31',
+                x:'454',
+                y:'372',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Чкаловская',
+                id:'32',
+                x:'422',
+                y:'327',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Сретенскай бульвар',
+                id:'33',
+                x:'361',
+                y:'295',
+                color:'#71C725',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Трубная',
+                id:'34',
+                x:'295',
+                y:'242',
+                color:'#71C725',
+            })
+            );
+            metro.addLine(line);
+            
+            var line=new ru.simans.MetroLine({name:'Замоскворецкая линия', color:'#055014'});
+            line.addStation( new ru.simans.MetroStation({
+                name:'Речной вокзал',
+                id:'35',
+                x:'190',
+                y:'59',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Водный стадион',
+                id:'36',
+                x:'190',
+                y:'69',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Войковская',
+                id:'37',
+                x:'190',
+                y:'78',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Сокол',
+                id:'38',
+                x:'190',
+                y:'89',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Аэропорт',
+                id:'39',
+                x:'190',
+                y:'99',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Динамо',
+                id:'40',
+                x:'190',
+                y:'110',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Белорусская',
+                id:'41',
+                x:'219',
+                y:'231',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Маяковская',
+                id:'42',
+                x:'228',
+                y:'264',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Тверская',
+                id:'43',
+                x:'228',
+                y:'291',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Театральная',
+                id:'44',
+                x:'297',
+                y:'364',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Новокузнецкая',
+                id:'45',
+                x:'332',
+                y:'397',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Павелецкая',
+                id:'46',
+                x:'386',
+                y:'455',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Автозаводская',
+                id:'47',
+                x:'388',
+                y:'489',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Коломенская',
+                id:'48',
+                x:'389',
+                y:'500',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Каширская',
+                id:'49',
+                x:'392',
+                y:'511',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Кантемировская',
+                id:'50',
+                x:'388',
+                y:'622',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Царицыно',
+                id:'51',
+                x:'389',
+                y:'633',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Орехово',
+                id:'52',
+                x:'389',
+                y:'643',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Домодедовская',
+                id:'53',
+                x:'389',
+                y:'654',
+                color:'#055014',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Красногвардейская',
+                id:'54',
+                x:'388',
+                y:'670',
+                color:'#055014',
+            })
+            );
+            metro.addLine(line);
+            
+            var line=new ru.simans.MetroLine({name:'Каховская линия', color:'#1A9D8E'});
+            line.addStation( new ru.simans.MetroStation({
+                name:'Каширская',
+                id:'55',
+                x:'384',
+                y:'511',
+                color:'#1A9D8E',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Варшавская',
+                id:'56',
+                x:'363',
+                y:'537',
+                color:'#1A9D8E',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Каховская',
+                id:'57',
+                x:'301',
+                y:'593',
+                color:'#1A9D8E',
+            })
+            );
+            metro.addLine(line);
+            
+            var line=new ru.simans.MetroLine({name:'Таганско-краснопресненская линия', color:'#780060'});
+            line.addStation( new ru.simans.MetroStation({
+                name:'Выхино',
+                id:'58',
+                x:'489',
+                y:'663',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Рязаский проспект',
+                id:'59',
+                x:'489',
+                y:'654',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Кузьминки',
+                id:'60',
+                x:'489',
+                y:'644',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Текстильщики',
+                id:'61',
+                x:'489',
+                y:'633',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Волгоградский проспект',
+                id:'63',
+                x:'488',
+                y:'624',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Пролетарская',
+                id:'64',
+                x:'455',
+                y:'449',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Таганская',
+                id:'65',
+                x:'413',
+                y:'409',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Китай-город',
+                id:'66',
+                x:'356',
+                y:'350',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Кузнецкий мост',
+                id:'67',
+                x:'316',
+                y:'310',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Пушкинская',
+                id:'68',
+                x:'222',
+                y:'302',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Баррикадная',
+                id:'69',
+                x:'178',
+                y:'258',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Улица 1905 года',
+                id:'70',
+                x:'175',
+                y:'207',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Беговая',
+                id:'71',
+                x:'175',
+                y:'198',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Полежаевская',
+                id:'72',
+                x:'175',
+                y:'187',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Октябрьское полу',
+                id:'73',
+                x:'175',
+                y:'177',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Щукинская',
+                id:'74',
+                x:'175',
+                y:'168',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Тушинская',
+                id:'75',
+                x:'175',
+                y:'158',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Сходненская',
+                id:'76',
+                x:'175',
+                y:'147',
+                color:'#780060',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Планерная',
+                id:'77',
+                x:'175',
+                y:'137',
+                color:'#780060',
+            })
+            );
+            metro.addLine(line);
+
+            var line=new ru.simans.MetroLine({name:'Кольцевая линий', color:'#640000'});
+            line.addStation( new ru.simans.MetroStation({
+                name:'Проспект мира',
+                id:'78',
+                x:'355',
+                y:'235',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Комсомольская',
+                id:'79',
+                x:'388',
+                y:'260',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Курская',
+                id:'80',
+                x:'417',
+                y:'312',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Таганская',
+                id:'81',
+                x:'408',
+                y:'401',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Павелецкая',
+                id:'83',
+                x:'381',
+                y:'446',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Добрынинская',
+                id:'84',
+                x:'289',
+                y:'485',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Октябрьская',
+                id:'85',
+                x:'236',
+                y:'472',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Парк культуры',
+                id:'86',
+                x:'192',
+                y:'442',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Киевская',
+                id:'87',
+                x:'158',
+                y:'374',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Краснопресненская',
+                id:'90',
+                x:'186',
+                y:'266',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Белорусская',
+                id:'91',
+                x:'224',
+                y:'239',
+                color:'#640000',
+            })
+            );
+            line.addStation( new ru.simans.MetroStation({
+                name:'Новослободская',
+                id:'92',
+                x:'264',
+                y:'222',
+                color:'#640000',
+            })
+            );            
+            metro.addLine(line);
+        };
+        
+    </script>
+    <style>
+        @import url(ru.simans/Metro.css);
+        #metro{
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+    </head>
+    <body>
+        <form method="get">
+        <div id="metro"></div>
+        <input type="submit"/>
+        </form>
+    </body>
+    
+</html>

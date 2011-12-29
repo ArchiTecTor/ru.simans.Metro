@@ -26,6 +26,7 @@
         y: 20,
         color: 'red', // не нужный пока параметр, при добавлении в линию все равно переопределяется
         onSelected: function(){}, // выполнится при выборе элемента
+        selected: 1, // если хотим чтоб станция была уже обозначалась выбранной при создании
     });
 */
 var ru;
@@ -53,9 +54,9 @@ ru.simans.Metro=function(canvas_id,metro_file){
 
     canvas.className='ru_simans_Metro';
     canvas.style.position='relative';
-    canvas.style.margin='0';
+
     canvas.style.padding='0';
-    canvas.style.border='0';
+
     
     this.id=canvas_id;
 
@@ -140,6 +141,9 @@ ru.simans.MetroLine.prototype.addStation=function(station){
     
     this.stations.push(station);
     station.setColor(this.color);
+    if(station.selected){
+        station.setSelected(1);
+    }
     this.container.appendChild(station.getWidget());
     this.selectGroup.appendChild(station.getSelectOption());
 };
@@ -242,7 +246,7 @@ ru.simans.MetroStation.prototype.toggleSelected=function(){
 };
 
 ru.simans.MetroStation.prototype.toString=function(){
-    var obj=' new MetroStation({\n';
+    var obj=' new ru.simans.MetroStation({\n';
     for(var field in this){
         if(typeof(this[field])=='string'||typeof(this[field])=='number')
             obj+='    '+field+":'"+this[field]+"',\n";
