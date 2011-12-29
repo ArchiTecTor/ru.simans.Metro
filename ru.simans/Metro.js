@@ -78,9 +78,12 @@ ru.simans.Metro=function(canvas_id,metro_file){
     this.stationsSelect=stations_select;
     
     var metro=this;
-    $(this.stationsSelect).bind('click',function(event){
+    $(this.stationsSelect).bind('change',function(event){
         metro.selectToggleSelected();
         event.preventDefault();
+    }).bind('keyup',function(event){
+        metro.selectToggleSelected();
+        //event.preventDefault();
     });
     
     if(!(this.width=canvas.offsetWidth)) throw new Error("bad metro width: "+canvas.offsetWidth+" obj "+canvas);
