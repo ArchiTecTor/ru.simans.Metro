@@ -1,6 +1,9 @@
 /*
  Виджет множественного выбора станций метро
  Имеет карту с кнопками выбора и список дублирующий выбор станций
+ ввиду особой геморойности реализации тонкостей каждого браузера (особенно обработки событий в IE)
+ и принципа скока можно велосипедить, пора отдать другим, используется jquery библиотека, поэтому для
+ работы она должна быть подключена
  
  Порядок создания элементов таков
  1 создаем основную карту
@@ -39,6 +42,8 @@ else if(typeof(ru.simans)!='object')
 if(ru.simans.Metro)
     throw new Error('пространство имен ru.simans.Metro существует');
 
+
+
 // обязательно нужно передать id контейнера для карты и местоположение самого изображения-подложки
 // пример new ru.simans.Metro('metro','/images/metro.jpg');
 ru.simans.Metro=function(canvas_id,metro_file){
@@ -66,6 +71,7 @@ ru.simans.Metro=function(canvas_id,metro_file){
     var stations_select=document.createElement('select');
     stations_select.multiple='multiple';
     stations_select.name='metro';
+    stations_select.className='ru_simans_Metro stationsList';
     canvas.appendChild(stations_select);    
     this.stationsSelect=stations_select;
     
@@ -89,9 +95,9 @@ ru.simans.Metro.prototype.addLine=function(line){
     
     this.stationsSelect.appendChild(line.selectGroup);
 
-    this.stationsSelect.onclick=function(){
+    $(this.stationsSelect).bind('click',function(){
         metro.selectToggleSelected();
-    };
+    });
     
     
 };
@@ -171,10 +177,10 @@ ru.simans.MetroStation=function(obj){
     
     var station=this;
     
-    this.button.onclick=function(event){
+    $(this.button).bind('click',function(event){
         event.preventDefault();
         station.toggleSelected();
-    };
+    });
 
     if(this.selected){
         //console.log('id - %d selected - %s',this.id, this.selected);
@@ -186,7 +192,7 @@ ru.simans.MetroStation=function(obj){
     }
     
     this.button.style.position='absolute';
-    console.log(this.button.style.height);
+    
     this.button.style.top=this.y+'px';
     this.button.style.left=this.x+'px';
     
@@ -196,7 +202,7 @@ ru.simans.MetroStation.prototype.setSelected=function(select){
     if(select){
         this.button.className='ru_simans_MetroStation selected';    
         this.selectItem.selected=true;
-        //console.log('Metro: select station %d',this.id);
+        
         this.button.style.backgroundColor='';
         this.selected=true;
         this.onSelected();
@@ -205,7 +211,7 @@ ru.simans.MetroStation.prototype.setSelected=function(select){
         this.button.className='ru_simans_MetroStation';
         this.selectItem.selected=false;
         this.button.style.backgroundColor=this.color;
-        //console.log('Metro: deselect station %d',this.id);
+        
         this.selected=false;
     }
     
@@ -214,7 +220,6 @@ ru.simans.MetroStation.prototype.setSelected=function(select){
 ru.simans.MetroStation.prototype.setButtonSelected=function(select){
     if(select){
         this.button.className='ru_simans_MetroStation selected';
-        //console.log('Metro: select station %d',this.id);
         this.button.style.backgroundColor='';
         this.selected=true;
         this.onSelected();
@@ -222,7 +227,6 @@ ru.simans.MetroStation.prototype.setButtonSelected=function(select){
     else{
         this.button.className='ru_simans_MetroStation';
         this.button.style.backgroundColor=this.color;
-        //console.log('Metro: deselect station %d',this.id);
         this.selected=false;
     }
 }

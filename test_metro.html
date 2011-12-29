@@ -2,11 +2,12 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src="ru.simans/Metro.js"></script>
+    <script src="ru.simans/jquery-current.js"></script>
     <script src="ru.simans/MetroEditor.js"></script>
     <script>
         window.onload=function(){
             var metro=new ru.simans.Metro('metro','metro.gif');
-            console.log(metro);
+            
             var line=new ru.simans.MetroLine({
                 name: 'тестовая',
                 color: 'green',
@@ -14,18 +15,15 @@
             metro.addLine(line);
             //metro.addLine(new ru.simans.MetroLine({name:'sss', color:'blue'}));
             
-            window.setTimeout(function(){
-                line.addStation(new ru.simans.MetroStation(
-                {
-                    name:'testAdd',
-                    x:'263',
-                    y:'58',
-                    color:'red',
-                    id: 2,
-                    onSelected: function(){alert('station selected')},
-                }
-                ));
-            },2000);
+            
+            line.addStation(new ru.simans.MetroStation({
+                name:'testAdd',
+                x:'263',
+                y:'58',
+                color:'red',
+                id: 2,
+                
+            }));
             
             
             
@@ -33,68 +31,7 @@
         
     </script>
     <style>
-        
-        .ru_simans_Metro{
-              
-        }
-        .ru_simans_MetroStation{
-            border: 1px solid #fff;
-            width: 10px;
-            height: 10px;
-            border-radius: 5px;
-            padding: 0;
-            margin: 0;
-        }
-        .ru_simans_MetroStation:hover{
-            width: 14px;
-            height: 14px;
-            margin-left: -2px;
-            margin-top: -2px;
-        }
-        
-        .ru_simans_MetroStation.cursor{
-            background: none;
-            border: 2px solid #000;
-        }
-        
-        .ru_simans_MetroEditor .infoPanel{
-            
-            background: none;
-            border: 1px solid #000;
-            padding: 0;
-        }
-        .ru_simans_MetroStation.selected{
-            border: 1px solid #000;
-            background-color: rgb(200,3,3);
-            margin-left: -2px;
-            margin-top: -2px;
-            width: 15px;
-            height: 15px;
-        }
-        .ru_simans_MetroEditor.tool_panel{
-            padding: 10px;
-            border: 2px solid;
-            float: right;
-            font: 0.8em Arial;
-        }
-        .ru_simans_MetroEditor.tool_panel .linesPanel>select{
-            float: left;
-        }
-        .ru_simans_MetroEditor.tool_panel .linesPanel>label{
-            font: 0.8em Arial;
-            margin-left: 10px;
-        }
-        .ru_simans_MetroEditor.tool_panel .linesPanel>label>input{
-            width: 30%;
-            margin-left: 10px;
-        }
-        .ru_simans_Metro>img{
-            margin: 0;
-            padding: 0;
-        }
-        #metro{
-            width:1000px;
-        }
+        @import url(ru.simans/Metro.css);
     </style>
     </head>
     <body>
