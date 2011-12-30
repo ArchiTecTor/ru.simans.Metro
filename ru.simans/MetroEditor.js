@@ -116,7 +116,7 @@ ru.simans.MetroEditor=function(canvas_id,metro_file){
     var viewStations=document.createElement('button');
     viewStations.innerHTML='Вывести все станции';
     viewStations.onclick=function(event){
-        var out='';
+        var out='<select multiple="multiple">';
         for(var line=0; line < container.lines.length; line++){
             var this_line=container.lines[line];
             out+=this_line;
@@ -128,7 +128,7 @@ ru.simans.MetroEditor=function(canvas_id,metro_file){
                 
             }*/
         }
-        
+        out+='</select>';
         var exportWindow=window.open();
         exportWindow.document.open();
         
@@ -171,4 +171,22 @@ ru.simans.MetroEditor.prototype.addNewStation=function(x,y){
     var result=id_name.split(':');
     var line=this.selectLine;
     line.addStation(new ru.simans.MetroStation({'x':x,'y':y,'name':result[1],'id':result[0]}));
-}
+};
+
+
+ru.simans.MetroLine.prototype.toString=function(){
+    //сменим функцию чтобы выводить в виде optgroup тега
+    var out='<optgroup label="'+this.name+'" style="color:'+this.color+'">\n';
+    for(var station=0; station<this.stations.length; station++){
+        var this_station=this.stations[station];
+        out+=this_station+'\n';
+    }
+    return out+'</optgroup>\n';
+};
+
+
+ru.simans.MetroStation.prototype.toString=function(){
+    //сменим функцию чтобы выводить в виде option тега
+    
+    return '<option id="'+this.id+'" x="'+this.x+'" y="'+this.y+'">'+this.name+'</option>\n';
+};

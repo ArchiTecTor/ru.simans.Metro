@@ -72,7 +72,7 @@ ru.simans.Metro=function(canvas_id,metro_file){
     var stations_select=document.createElement('select');
     stations_select.multiple='multiple';
     stations_select.name='metro';
-    stations_select.className='ru_simans_Metro stationsList';
+    stations_select.className='stationsList';
     
     canvas.appendChild(stations_select);    
     this.stationsSelect=stations_select;
@@ -86,8 +86,8 @@ ru.simans.Metro=function(canvas_id,metro_file){
         //event.preventDefault();
     });
     
-    if(!(this.width=canvas.offsetWidth)) throw new Error("bad metro width: "+canvas.offsetWidth+" obj "+canvas);
-    if(!(this.height=canvas.offsetHeight)) throw new Error("bad metro height: "+canvas.offsetHeight);
+    //if(!(this.width=canvas.offsetWidth)) throw new Error("bad metro width: "+canvas.offsetWidth+" obj "+canvas);
+    //if(!(this.height=canvas.offsetHeight)) throw new Error("bad metro height: "+canvas.offsetHeight);
     
     this.map=image;
     this.canvas=canvas;

@@ -1,7 +1,20 @@
+
 .ru_simans_Metro{
+    width: 980px;
     vertical-align: top;
+    
+    zoom: 1;
 }
-.ru_simans_Metro.stationsList{
+.ru_simans_Metro:after{
+    content: ".";
+    display: block;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.ru_simans_Metro .stationsList{
     height: 600px;
     border: 1px solid;
     background-color: #fff;
